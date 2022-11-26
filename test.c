@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/11/26 18:07:19 by pvong            ###   ########.fr       */
+/*   Updated: 2022/11/26 18:39:08 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,6 @@
 #define S_CENTER_H		S_HEIGHT/2
 #define	S_CENTER_WIDTH	S_WIDTH/2
 
-/* int	main()
-{
-	void *mlx;
-	void *win;
-	int	x;
-	int	y;
-	
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, S_WIDTH, S_HEIGHT, "mlx 42");
-	y = S_CENTER_H - 50;
-	while (y < S_CENTER_H + 50)
-		{
-			x = S_CENTER_WIDTH - 50;
-			while (x < S_CENTER_WIDTH + 50)
-			{
-				mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
-				x++;
-			}
-			y++;
-		}
-	mlx_loop(mlx);
-} */
-
-
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
@@ -77,7 +53,6 @@ int	main(void)
 	for (int y = 150; y < 250; y++)
 		for(int x = 150; x <= 250; x++)
 			my_mlx_pixel_put(&img, x, y, 0x00FF0000);
-	int	x = 
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
