@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/11/26 18:39:08 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/05 18:48:01 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,14 @@
 // 		Z_real = Z_real^2 - Z_imaginary^2 + c_real
 // 		Z_imaginary = 2 * Z_real * Z_imaginary + c_imaginary
 
-
-
-/* For the display resolution*/
-#define S_HEIGHT		900
-#define S_WIDTH			1440
-#define S_CENTER_H		S_HEIGHT/2
-#define	S_CENTER_WIDTH	S_WIDTH/2
-
+/* Put a pixel on the frame
+pixel = data->addr + (y * data->line_length + x * data->bits_per_pixel / 8); */
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	char	*dst;
+	char	*pixel;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	pixel = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*) pixel = color;
 }
 
 int	main(void)
@@ -44,15 +38,21 @@ int	main(void)
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 400, 400, "Hello world!");
-	img.img = mlx_new_image(mlx, 400, 400);
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	for (int y = 150; y < 250; y++)
-		for(int x = 150; x <= 250; x++)
+	while (y < 1080)
+	{
+		x = 0;
+		while (x < 1920)
+		{
 			my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+			x++;
+		}
+		y++;
+	}
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
