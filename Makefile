@@ -1,6 +1,6 @@
 UNAME = $(shell uname)
 
-NAME = fract-ol
+NAME = fractol
 
 # Colors
 GREEN=\033[0;32m
@@ -31,7 +31,8 @@ MLX_LIB	= $(addprefix $(MLX), mlx.a)
 SRC_DIR		= ./src
 
 # SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))
-SRC	= test.c
+SRC	= test.c \
+		utils.c
 
 # OBJS
 

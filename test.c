@@ -6,13 +6,17 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/05 18:48:01 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/09 15:23:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_opengl/mlx.h"
 #include "test.h"
+#include "libft/libft.h"
 
+// https://github.com/Ma3ert/fract-ol-42
+// https://github.com/GlThibault/Fractol
+// https://codeberg.org/Vusk/fractol/src/branch/master/src/fractol.c
 // Check https://mathworld.wolfram.com/MandelbrotSet.html
 // http://www.fractalsciencekit.com/program/maneqn.htm
 // For more informations on fractals
@@ -25,34 +29,16 @@
 
 /* Put a pixel on the frame
 pixel = data->addr + (y * data->line_length + x * data->bits_per_pixel / 8); */
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*pixel;
 
-	pixel = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*) pixel = color;
-}
-
-int	main(void)
+int	main()
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	while (y < 1080)
-	{
-		x = 0;
-		while (x < 1920)
-		{
-			my_mlx_pixel_put(&img, x, y, 0x00FF0000);
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	t_fractol *data;
+
+	init_win(data);
+	init_mandelbrot(data);
+	mlx_hook(data->win, 17, 0L, ft_close, data);
+	mlx_key_hook(data->win, key_hook, data);
+	mlx_mouse_hook(data->win, mouse_hook, data);
+	mlx_loop(data->mlx);
+	return (0);
 }
