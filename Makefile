@@ -16,7 +16,7 @@ LIB_INC	= -I $(LIBFT_DIR)
 LIB_LNK	= -L $(LIBFT_DIR) -lft
 
 ifeq ($(UNAME), linux)
-	MLX	= ./mlx-linux
+	MLX	= mlx_linux
 	MLX_LNK = -L $(MLX) -lmlx -lXext -lX11
 else 
 	MLX	= mlx_opengl
@@ -28,17 +28,19 @@ MLX_LIB	= $(addprefix $(MLX), mlx.a)
 
 # SRCS
 
-SRC_DIR		= ./src
+SRC_DIR		= src
 
-# SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))
-SRC	= test.c \
-		utils.c
+SOURCES	= test.c \
+		utils.c \
+		mandelbrot.c
+
+SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))
 
 # OBJS
 
 OBJS_DIR = objs
 
-OBJS = $(addprefix ./$(OBJS_DIR)/,$(SRC:.c=.o))
+OBJS = $(addprefix ./$(OBJS_DIR)/,$(SOURCES:.c=.o))
 
 # Compiling
 
@@ -53,9 +55,9 @@ all: temp $(NAME)
 temp:
 	@mkdir -p $(OBJS_DIR)
 
-$(OBJS_DIR)/%.o: %.c
+$(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) $(LIB_INC) $(MLX_INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(LIB_INC) $(MLX_INC) $(INCLUDE) -c $< -o $@
 	@echo "Compiling..."
 
 $(NAME):	$(OBJS)

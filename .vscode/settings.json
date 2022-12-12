@@ -12,6 +12,10 @@
 		"unistd.h": "c",
 		"libft.h": "c",
 		"pthread.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"test.h": "c",
+		"mlx.h": "c",
+		"fract.h": "c",
+		"ratio": "c"
 	}
 }
