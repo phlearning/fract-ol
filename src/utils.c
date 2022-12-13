@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/12 16:29:01 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/13 15:02:05 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	put_text(t_fractol *data)
 	ft_strdel(&nb);
 }
 
-void	fract_calc(t_fractol *data)
+int	fract_calc(t_fractol *data)
 {
 	if (data->it_max < 0)
 		data->it_max = 0;
@@ -50,6 +50,7 @@ void	fract_calc(t_fractol *data)
 		mandelbrot(data);
 	if (data->show_text)
 		put_text(data);
+	return (0);
 }
 
 void	mlx_win_init(t_fractol *data)

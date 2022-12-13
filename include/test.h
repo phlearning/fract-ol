@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/12 18:37:30 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/13 14:59:11 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		mouse_hook(int mousecode, int x, int y, t_fractol *data);
 
 /* Mandelbrot */
 void	mandelbrot_init(t_fractol *data);
-void	fract_calc(t_fractol *data);
+int		fract_calc(t_fractol *data);
 // void	mandelbrot_pthread(t_fractol *data);
 void	mandelbrot_calc(t_fractol *data);
 void	mandelbrot(t_fractol *data);

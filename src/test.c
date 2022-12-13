@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/12 13:57:10 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/13 14:59:12 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	main()
 	mlx_win_init(data);
 	data->fract = 0;
 	mandelbrot_init(data);
-	fract_calc(data);
+	// fract_calc(data);
+	mlx_loop_hook(data->mlx, fract_calc, data);
 	mlx_hook(data->win, 17, 0L, ft_close, data);
 	mlx_key_hook(data->win, key_hook, data);
 	mlx_mouse_hook(data->win, mouse_hook, data);
