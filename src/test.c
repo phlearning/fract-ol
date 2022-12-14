@@ -41,7 +41,7 @@ int	main()
 	data->fract = 0;
 	mandelbrot_init(data);
 	// fract_calc(data);
-	mlx_hook(data->win,)
+	mlx_hook(data->win, KEY_PRESS, KEY_PRESS_MASK, )
 	mlx_loop(data->mlx);
 	return (0);
 }
