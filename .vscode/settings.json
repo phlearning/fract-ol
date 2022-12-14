@@ -21,6 +21,9 @@
 		"algorithm": "c",
 		"chrono": "c",
 		"locale": "c",
-		"memory": "c"
+		"memory": "c",
+		"ios": "c",
+		"istream": "c",
+		"ostream": "c"
 	}
 }

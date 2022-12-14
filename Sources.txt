@@ -1,0 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Sources.txt                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/14 16:18:45 by pvong             #+#    #+#              #
+#    Updated: 2022/12/14 16:19:33 by pvong            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+			POUR LA MINILIBS
+http://www-igm.univ-mlv.fr/~berstel/Cours/Xlib/13-Evenements.pdf
+https://harm-smits.github.io/42docs/libs/minilibx/events.html
+
+			POUR REFERENCES
+https://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings

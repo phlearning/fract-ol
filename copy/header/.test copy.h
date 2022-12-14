@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   .test copy.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 15:44:17 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/14 14:45:20 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 # include "../mlx_opengl/mlx.h"
-# include "./x11events.h"
-# include "./key_macos.h"
 
 # define WIDTH 600
 # define HEIGHT 600
