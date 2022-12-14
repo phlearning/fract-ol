@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/13 14:59:11 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/14 14:11:18 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "../libft/libft.h"
-# include <pthread.h>
 # include "../mlx_opengl/mlx.h"
 
 # define WIDTH 600
@@ -54,6 +53,10 @@ typedef struct	s_fractol {
 /* Init window */
 void	mlx_win_init(t_fractol *data);
 
+/* Hook */
+int		control_key(int keycode, t_fractol *data);
+int		expose_hook(t_fractol *data);
+
 /* keyhook */
 int		key_hook2(int keycode, t_fractol *data);
 int		key_hook(int keycode, t_fractol *data);
@@ -66,7 +69,6 @@ int		mouse_hook(int mousecode, int x, int y, t_fractol *data);
 /* Mandelbrot */
 void	mandelbrot_init(t_fractol *data);
 int		fract_calc(t_fractol *data);
-// void	mandelbrot_pthread(t_fractol *data);
 void	mandelbrot_calc(t_fractol *data);
 void	mandelbrot(t_fractol *data);
 
@@ -74,6 +76,8 @@ void	mandelbrot(t_fractol *data);
 int		ft_close(void);
 void	put_text(t_fractol *data);
 void	ft_strdel(char **as);
+
+/* mlx */
 void	put_pxl_to_img(t_fractol *data, int x, int y, int color);
 
 #endif

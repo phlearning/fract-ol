@@ -32,7 +32,8 @@ SRC_DIR		= src
 
 SOURCES	= test.c \
 		utils.c \
-		mandelbrot.c
+		mandelbrot.c \
+		hook.c
 
 SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))
 

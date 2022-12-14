@@ -16,6 +16,11 @@
 		"test.h": "c",
 		"mlx.h": "c",
 		"fract.h": "c",
-		"ratio": "c"
+		"ratio": "c",
+		"__config": "c",
+		"algorithm": "c",
+		"chrono": "c",
+		"locale": "c",
+		"memory": "c"
 	}
 }
