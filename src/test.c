@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 15:35:37 by pvong            ###   ########.fr       */
+/*   Updated: 2022/12/15 14:40:58 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@
 // z = z^2 + c  with z being a complex number
 // 		Z_real = Z_real^2 - Z_imaginary^2 + c_real
 // 		Z_imaginary = 2 * Z_real * Z_imaginary + c_imaginary
-
-/* Put a pixel on the frame
-pixel = data->addr + (y * data->line_length + x * data->bits_per_pixel / 8); */
 
 int	main()
 {
