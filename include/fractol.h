@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 15:44:17 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:17:56 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+# include "../ft_printf/includes/ft_printf.h"
 # include "../mlx_opengl/mlx.h"
 # include "./x11events.h"
 # include "./key_macos.h"

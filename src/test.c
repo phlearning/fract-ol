@@ -6,12 +6,12 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/15 14:40:58 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 16:00:12 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx_opengl/mlx.h"
-#include "../include/test.h"
+#include "../include/fractol.h"
 #include "../libft/libft.h"
 
 // https://github.com/Ma3ert/fract-ol-42
@@ -38,7 +38,12 @@ int	main()
 	data->fract = 0;
 	mandelbrot_init(data);
 	// fract_calc(data);
-	mlx_hook(data->win, KEY_PRESS, KEY_PRESS_MASK, )
+	mlx_expose_hook(data->win, expose_hook, data);
+	mlx_loop_hook(data->mlx, fract_calc, data);
+	mlx_hook(data->win, 17, 0L, ft_close, data);
+	mlx_key_hook(data->win, control_key, data);
+	mlx_mouse_hook(data->win, mouse_hook, data);
+	// mlx_mouse_hook(data->win, mouse_hook, data);
 	mlx_loop(data->mlx);
 	return (0);
 }

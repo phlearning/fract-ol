@@ -6,11 +6,11 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 16:52:43 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 15:10:56 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/test.h"
+#include "../include/fractol.h"
 
 void	put_pxl_to_img(t_fractol *data, int x, int y, int color)
 {
@@ -78,7 +78,7 @@ void	ft_zoom(int x, int y, t_fractol *data)
 
 void	ft_dezoom(int x, int y, t_fractol *data)
 {
-	data->x1 = (x / data->zoom + data->x1)  - (x / (data->zoom / 1.3));
+	data->x1 = (x / data->zoom + data->x1) - (x / (data->zoom / 1.3));
 	data->y1 = (y / data->zoom + data->y1) - (y / (data->zoom / 1.3));
 	data->zoom /= 1.3;
 	data->it_max--;

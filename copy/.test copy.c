@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   .test copy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 13:19:36 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 12:24:19 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx_opengl/mlx.h"
-#include "../include/test.h"
+#include "../include/fractol.h"
 #include "../libft/libft.h"
 
 // https://github.com/Ma3ert/fract-ol-42

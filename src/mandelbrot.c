@@ -6,11 +6,11 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:48:19 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 14:45:00 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 15:55:41 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/test.h"
+#include "../include/fractol.h"
 
 
 void	mandelbrot_init(t_fractol *data)
@@ -27,6 +27,7 @@ void	mandelbrot(t_fractol	*data)
 	int		tmp;
 
 	data->x = 0;
+	data->y = -1;
 	tmp = data->y;
 	while (data->x < WIDTH)
 	{

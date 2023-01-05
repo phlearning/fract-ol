@@ -6,11 +6,11 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2022/12/14 14:42:12 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/05 12:33:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/test.h"
+#include "../include/fractol.h"
 
 void	put_pxl_to_img(t_fractol *data, int x, int y, int color)
 {
