@@ -6,12 +6,12 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/05 14:17:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/09 19:19:18 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 # include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -26,7 +26,7 @@
 # define THREAD_WIDTH 10
 # define THREAD_NUMBER 300
 
-typedef struct	s_fractol {
+typedef struct s_fractol {
 	void		*mlx;
 	void		*win;
 	void		*img;
@@ -37,9 +37,9 @@ typedef struct	s_fractol {
 	int			fract;
 	int			color;
 	int			julia_mouse;
-	int			x;
-	int			y;
-	int			y_max;
+	double		x;
+	double		y;
+	double		y_max;
 	int			it;
 	int			it_max;
 	int			show_text;
@@ -53,8 +53,10 @@ typedef struct	s_fractol {
 	double		tmp;
 }				t_fractol;
 
-/* Init window */
+/* Init window & Init fractol*/
 void	mlx_win_init(t_fractol *data);
+int 	correct_fractol(char **entered_fract, t_fractol *data);
+void	init_fract(t_fractol *data);
 
 /* Hook */
 int		control_key(int keycode, t_fractol *data);
@@ -74,6 +76,12 @@ void	mandelbrot_init(t_fractol *data);
 int		fract_calc(t_fractol *data);
 void	mandelbrot_calc(t_fractol *data);
 void	mandelbrot(t_fractol *data);
+
+/* Julia */
+int		mouse_julia(int x, int y, t_fractol *data);
+void	julia_init(t_fractol *data);
+void	julia_calc(t_fractol *data);
+void	julia(t_fractol *data);
 
 /* Utils */
 int		ft_close(void);

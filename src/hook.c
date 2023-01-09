@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:38:01 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/05 16:17:27 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/09 19:43:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int		expose_hook(t_fractol *data)
 {
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->img_ptr = mlx_get_data_addr(data->img, &data->bpp, &data->sl, &data->endian);
-	mandelbrot(data);
+	// mandelbrot(data);
+	fract_calc(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (0);
 }
@@ -56,8 +57,6 @@ int		key_hook(int keycode, t_fractol *data)
 		data->color = 1677216;
 	key_hook2(keycode, data);
 	ft_printf("Key: %d\n", keycode);
-	ft_printf("x1 = %d\n", data->x1);
-	ft_printf("y1 = %d\n", data->y1);
 	ft_printf("it_max = %d\n", data->it_max);
 	return (0);
 }

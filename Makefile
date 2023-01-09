@@ -36,10 +36,12 @@ MLX_LIB			= $(addprefix $(MLX), mlx.a)
 
 SRC_DIR			= src
 
-SOURCES			= test.c \
+SOURCES			= main.c \
 				utils.c \
 				mandelbrot.c \
-				hook.c
+				julia.c \
+				hook.c \
+				
 
 SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))
 

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/05 15:10:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/09 19:00:31 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	fract_calc(t_fractol *data)
 		data->it_max = 0;
 	if (data->fract == 0)
 		mandelbrot(data);
+	if (data->fract == 1)
+		julia(data);
 	if (data->show_text)
 		put_text(data);
 	return (0);

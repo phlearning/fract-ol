@@ -6,13 +6,13 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:48:19 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/05 15:55:41 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/09 18:09:17 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-
+/* init the variables (it_max / zoom_value / offset / color) */
 void	mandelbrot_init(t_fractol *data)
 {
 	data->it_max = 50;
@@ -22,6 +22,7 @@ void	mandelbrot_init(t_fractol *data)
 	data->color = 265;
 }
 
+/* navigate the screen and pass the x/y to our calc function */
 void	mandelbrot(t_fractol	*data)
 {
 	int		tmp;
@@ -41,6 +42,10 @@ void	mandelbrot(t_fractol	*data)
 	}
 }
 
+/* transform the x/y into screen coord and put pixels.
+	x1 and y1 are the offset
+	the zoom value let us zoom in or zoom out
+	but here it enables us to calculates the next complex */
 void	mandelbrot_calc(t_fractol *data)
 {
 	data->c_r = data->x / data->zoom + data->x1;
