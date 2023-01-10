@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/09 19:19:18 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/10 15:57:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include "./x11events.h"
 # include "./key_macos.h"
 
-# define WIDTH 600
-# define HEIGHT 600
+# define WIDTH 900
+# define HEIGHT 900
 # define THREAD_WIDTH 10
 # define THREAD_NUMBER 300
 
@@ -39,7 +39,6 @@ typedef struct s_fractol {
 	int			julia_mouse;
 	double		x;
 	double		y;
-	double		y_max;
 	int			it;
 	int			it_max;
 	int			show_text;
@@ -86,6 +85,8 @@ void	julia(t_fractol *data);
 /* Utils */
 int		ft_close(void);
 void	put_text(t_fractol *data);
+void	put_text2(t_fractol *data);
+void	put_text3(t_fractol *data);
 void	ft_strdel(char **as);
 
 /* mlx */

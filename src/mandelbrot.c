@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:48:19 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/09 18:09:17 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/10 18:12:44 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	mandelbrot_init(t_fractol *data)
 {
 	data->it_max = 50;
-	data->zoom = 200;
+	data->zoom = WIDTH / 3;
 	data->x1 = -2.05;
 	data->y1 = -1.5;
 	data->color = 265;
@@ -28,7 +28,7 @@ void	mandelbrot(t_fractol	*data)
 	int		tmp;
 
 	data->x = 0;
-	data->y = -1;
+	data->y = 0;
 	tmp = data->y;
 	while (data->x < WIDTH)
 	{
@@ -64,5 +64,5 @@ void	mandelbrot_calc(t_fractol *data)
 	if (data->it == data->it_max)
 		put_pxl_to_img(data, data->x, data->y, 0x000000);
 	else
-		put_pxl_to_img(data, data->x, data->y, (data->color * data->it));
+		put_pxl_to_img(data, data->x, data->y, (data->color * (data->it % 20)));
 }

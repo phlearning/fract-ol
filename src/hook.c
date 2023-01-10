@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:38:01 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/09 19:43:15 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/10 18:06:27 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int		key_hook(int keycode, t_fractol *data)
 	else if (keycode == 126) // UP_ARROW
 		data->y1 -= 30 / data->zoom;
 	else if (keycode == 49) // SPACE
-		mandelbrot_init(data);
+		init_fract(data);
 	else if (keycode == 18) // NUM_1
 		data->color = 1677216;
 	key_hook2(keycode, data);
-	ft_printf("Key: %d\n", keycode);
-	ft_printf("it_max = %d\n", data->it_max);
+	// ft_printf("Key: %d\n", keycode);
+	// ft_printf("it_max = %d\n", data->it_max);
 	return (0);
 }
 
