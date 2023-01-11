@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/10 14:26:46 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 15:41:27 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	init_fract(t_fractol *data)
 		mandelbrot_init(data);
 	if (data->fract == 1)
 		julia_init(data);
+	if (data->fract == 2)
+		burningship_init(data);
+	
 	fract_calc(data);
 }
 
@@ -31,6 +34,9 @@ int correct_fractol(char **entered_fract, t_fractol *data)
 	else if (ft_strcmp(entered_fract[1], "Julia") == 0 \
 		|| ft_strcmp(entered_fract[1], "julia") == 0)
 		data->fract = 1;
+	else if (ft_strcmp(entered_fract[1], "Burningship") == 0 \
+		|| ft_strcmp(entered_fract[1], "burningship") == 0)
+		data->fract = 2;
 	else
 	{
 		ft_printf("Possible fractol Mandelbrot or Julia. Ex: ./fractol Mandelbrot\n");

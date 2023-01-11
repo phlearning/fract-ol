@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:06:24 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/05 13:21:42 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 16:49:56 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@
 */
 
 # define M_CLK_L 1
-# define M_CLK_R 3
-# define M_CLK_M 2
+# define M_CLK_R 2
+# define M_CLK_M 3
 # define M_SCR_U 4
 # define M_SCR_D 5
 

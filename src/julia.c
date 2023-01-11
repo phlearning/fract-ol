@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:09:45 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/10 18:36:29 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 17:03:39 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	julia_init(t_fractol *data)
 	data->x1 = -2.25;
 	data->y1 = -2.25;
 	data->color = 265;
-	data->c_i = 100;
-	data->c_r = 900;
+	data->c_i = 179;
+	data->c_r = 402;
 	data->julia_mouse = 1;
 }
 

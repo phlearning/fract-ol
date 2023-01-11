@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/10 15:57:15 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 16:17:23 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRACTOL_H
 # include <math.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 # include "../ft_printf/includes/ft_printf.h"
 # include "../mlx_opengl/mlx.h"
@@ -36,6 +35,7 @@ typedef struct s_fractol {
 	int			bpp;
 	int			fract;
 	int			color;
+	int			red_burningship;
 	int			julia_mouse;
 	double		x;
 	double		y;
@@ -81,6 +81,11 @@ int		mouse_julia(int x, int y, t_fractol *data);
 void	julia_init(t_fractol *data);
 void	julia_calc(t_fractol *data);
 void	julia(t_fractol *data);
+
+/* Burningship */
+void	burningship_init(t_fractol *data);
+void	burningship(t_fractol	*data);
+void	burningship_calc(t_fractol *data);
 
 /* Utils */
 int		ft_close(void);

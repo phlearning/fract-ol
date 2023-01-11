@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:38:01 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/10 18:06:27 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 18:06:57 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		expose_hook(t_fractol *data)
 {
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->img_ptr = mlx_get_data_addr(data->img, &data->bpp, &data->sl, &data->endian);
-	// mandelbrot(data);
 	fract_calc(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (0);
@@ -24,13 +23,15 @@ int		expose_hook(t_fractol *data)
 
 int		key_hook2(int keycode, t_fractol *data)
 {
-	if (keycode == 19) // Num 2
+	if (keycode == K_NUM_2)
 		data->color = 2050;
-	else if (keycode == 20) // Num 3
+	else if (keycode == K_NUM_3)
 		data->color = 265;
-	else if (keycode == 35) // K_P
+	else if (keycode == K_NUM_4)
+		data->red_burningship = !data->red_burningship;
+	else if (keycode == K_P)
 		data->julia_mouse = !data->julia_mouse;
-	else if (keycode == 34) // K_I
+	else if (keycode == K_I)
 		data->show_text = !data->show_text;
 	return (0);
 }
@@ -39,25 +40,23 @@ int		key_hook(int keycode, t_fractol *data)
 {
 	if (keycode == 53)
 		exit(1);
-	else if (keycode == 69) // NUMPAD_+
+	else if (keycode == K_NP_PLU) // NUMPAD_+
 		data->it_max += 10;
-	else if (keycode == 78) // NUMPAD_-
+	else if (keycode == K_NP_MIN) // NUMPAD_-
 		data->it_max -= 10;
-	else if (keycode == 123) // LEFT_ARROW
+	else if (keycode == K_AR_L) // LEFT_ARROW
 		data->x1 -= 30 / data->zoom;
-	else if (keycode == 124) // RIGHT_ARROW
+	else if (keycode == K_AR_R) // RIGHT_ARROW
 		data->x1 += 30 / data->zoom;
-	else if (keycode == 125) // DOWN_ARROW
+	else if (keycode == K_AR_D) // DOWN_ARROW
 		data->y1 += 30 / data->zoom;
-	else if (keycode == 126) // UP_ARROW
+	else if (keycode == K_AR_U) // UP_ARROW
 		data->y1 -= 30 / data->zoom;
-	else if (keycode == 49) // SPACE
+	else if (keycode == K_SP) // SPACE
 		init_fract(data);
-	else if (keycode == 18) // NUM_1
-		data->color = 1677216;
+	else if (keycode == K_NUM_1) // NUM_1
+		data->color = 1077216;
 	key_hook2(keycode, data);
-	// ft_printf("Key: %d\n", keycode);
-	// ft_printf("it_max = %d\n", data->it_max);
 	return (0);
 }
 
@@ -89,9 +88,9 @@ int	control_key(int keycode, t_fractol *data)
 
 int		mouse_hook(int mousecode, int x, int y, t_fractol *data)
 {
-	if (mousecode == 4 || mousecode == 1) // Scroll up or click
+	if (mousecode == M_SCR_U || mousecode == M_CLK_L)
 		ft_zoom(x, y, data);
-	else if (mousecode == 5 || mousecode == 2) // Scroll down or click
+	else if (mousecode == M_SCR_D || mousecode == M_CLK_R)
 		ft_dezoom(x, y, data);
 	mlx_destroy_image(data->mlx, data->img);
 	mlx_clear_window(data->mlx, data->win);

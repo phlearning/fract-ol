@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/10 17:34:09 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 15:40:27 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	fract_calc(t_fractol *data)
 		mandelbrot(data);
 	if (data->fract == 1)
 		julia(data);
+	if (data->fract == 2)
+		burningship(data);
 	if (data->show_text)
 	{
 		put_text(data);
@@ -107,22 +109,24 @@ int		ft_close(void)
 	return (0);
 }
 
-/* c_r = x / zoom + x1; 
-	c_r = x / zoom + (x / zoom + x1) - (x / zoom * 1.3) */
+/* The new x1 and y1 coordinates are computed by taking the current x1,y1 
+and subtracting a fraction of the current zoom level, 
+which cause the fractal to be centered on the point (x, y) that was clicked. */
 void	ft_zoom(int x, int y, t_fractol *data)
 {
 	data->x1 = (x / data->zoom + data->x1) - (x / (data->zoom * 1.3));
 	data->y1 = (y / data->zoom + data->y1) - (y / (data->zoom * 1.3));
 	data->zoom *= 1.3;
-	data->it_max++;
+	data->it_max += 2;
 }
 
-/* c_r = x / zoom + x1; 
-	c_r = x / zoom + (x / zoom + x1) - (x / zoom / 1.3) */
+/* The ft_dezoom function does the opposite,
+ it decrease the zoom level by dividing it by 1.3, and again adjust x1, y1 values,
+ so the fractal is again centered on the point (x, y) that was clicked. */
 void	ft_dezoom(int x, int y, t_fractol *data)
 {
 	data->x1 = (x / data->zoom + data->x1) - (x / (data->zoom / 1.3));
 	data->y1 = (y / data->zoom + data->y1) - (y / (data->zoom / 1.3));
 	data->zoom /= 1.3;
-	data->it_max--;
+	data->it_max -= 2;
 }

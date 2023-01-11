@@ -40,6 +40,7 @@ SOURCES			= main.c \
 				utils.c \
 				mandelbrot.c \
 				julia.c \
+				burningship.c \
 				hook.c \
 				
 
@@ -55,7 +56,7 @@ OBJS 			= $(addprefix ./$(OBJS_DIR)/,$(SOURCES:.c=.o))
 
 CC				= gcc
 
-CFLAGS 			= -Wall -Werror -Wextra
+CFLAGS 			= -Wall -Werror -Wextra -O3
 
 INCLUDE 		= -I include
 
