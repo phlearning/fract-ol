@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 15:40:27 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 20:10:54 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,60 +17,9 @@ void	put_pxl_to_img(t_fractol *data, int x, int y, int color)
 	if (data->x < WIDTH && data->y < WIDTH)
 	{
 		color = mlx_get_color_value(data->mlx, color);
-		ft_memcpy(data->img_ptr + 4 * WIDTH * y + x * 4,
-				&color, sizeof(int));
+		ft_memcpy(data->img_ptr + 4 * WIDTH * y + x * 4, \
+			&color, sizeof(int));
 	}
-}
-
-void	ft_strdel(char **as)
-{
-	if (!as)
-		return ;
-	free(*as);
-	*as = NULL;
-}
-
-void	put_text(t_fractol *data)
-{
-	char	*text;
-	char	*nb;
-
-	nb = ft_itoa(data->it_max);
-	text = ft_strjoin("iterations : ", nb);
-	mlx_string_put(data->mlx, data->win, 10, 10, 0xFFFFFF, text);
-	ft_strdel(&text);
-	ft_strdel(&nb);
-}
-
-void	put_text2(t_fractol *data)
-{
-	char	*text_cr;
-	char	*text_ci;
-	char	*nb_cr;
-	char	*nb_ci;
-
-	nb_cr = ft_itoa(data->c_r);
-	nb_ci = ft_itoa(data->c_i);
-	text_cr = ft_strjoin("nb_cr : ", nb_cr);
-	text_ci = ft_strjoin("nb_ci : ", nb_ci);
-	mlx_string_put(data->mlx, data->win, 10, 20, 0xFFFFFF, text_cr);
-	mlx_string_put(data->mlx, data->win, 10, 30, 0xFFFFFF, text_ci);
-	ft_strdel(&text_cr);
-	ft_strdel(&text_ci);
-	ft_strdel(&nb_cr);
-	ft_strdel(&nb_ci);
-}
-
-void	put_text3(t_fractol *data)
-{
-	char	*text_color;
-	char	*nb_color;
-
-	nb_color = ft_itoa(data->color);
-	text_color = ft_strjoin("color : ", nb_color);
-	mlx_string_put(data->mlx, data->win, 10, 40, 0xFFFFFF, text_color);
-	ft_strdel(&text_color);
-	ft_strdel(&nb_color);
 }
 
 int	fract_calc(t_fractol *data)
@@ -87,8 +36,9 @@ int	fract_calc(t_fractol *data)
 	{
 		put_text(data);
 		put_text2(data);
+	}
+	if (data->show_help)
 		put_text3(data);
-	}	
 	return (0);
 }
 
@@ -107,26 +57,4 @@ int		ft_close(void)
 {
 	exit(1);
 	return (0);
-}
-
-/* The new x1 and y1 coordinates are computed by taking the current x1,y1 
-and subtracting a fraction of the current zoom level, 
-which cause the fractal to be centered on the point (x, y) that was clicked. */
-void	ft_zoom(int x, int y, t_fractol *data)
-{
-	data->x1 = (x / data->zoom + data->x1) - (x / (data->zoom * 1.3));
-	data->y1 = (y / data->zoom + data->y1) - (y / (data->zoom * 1.3));
-	data->zoom *= 1.3;
-	data->it_max += 2;
-}
-
-/* The ft_dezoom function does the opposite,
- it decrease the zoom level by dividing it by 1.3, and again adjust x1, y1 values,
- so the fractal is again centered on the point (x, y) that was clicked. */
-void	ft_dezoom(int x, int y, t_fractol *data)
-{
-	data->x1 = (x / data->zoom + data->x1) - (x / (data->zoom / 1.3));
-	data->y1 = (y / data->zoom + data->y1) - (y / (data->zoom / 1.3));
-	data->zoom /= 1.3;
-	data->it_max -= 2;
 }

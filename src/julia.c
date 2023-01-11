@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:09:45 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 17:03:39 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 20:10:52 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	mouse_julia(int x, int y, t_fractol *data)
 	{
 		data->c_r = x;
 		data->c_i = y;
-		// fract_calc(data);
 		mlx_destroy_image(data->mlx, data->img);
 		mlx_clear_window(data->mlx, data->win);
 		expose_hook(data);
@@ -34,8 +33,8 @@ void	julia_init(t_fractol *data)
 	data->x1 = -2.25;
 	data->y1 = -2.25;
 	data->color = 265;
-	data->c_i = 179;
-	data->c_r = 402;
+	data->c_i = 7;
+	data->c_r = 249;
 	data->julia_mouse = 1;
 }
 
@@ -49,7 +48,7 @@ void	julia_calc(t_fractol *data)
 	{
 		data->tmp = data->z_r;
 		data->z_r = data->z_r * data->z_r - data->z_i * data->z_i \
-			- 0.8 + (data->c_r / WIDTH);
+			+ (data->c_r / WIDTH);
 		data->z_i = 2 * data->z_i * data->tmp + data->c_i / HEIGHT;
 		data->it++;
 	}

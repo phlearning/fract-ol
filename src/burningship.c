@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:10:22 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 18:05:29 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 19:40:07 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 /* init the variables (it_max / zoom_value / offset / color) */
 void	burningship_init(t_fractol *data)
 {
-	data->it_max = 50;
-	data->zoom = WIDTH / 4;
-	data->x1 = -2.5;
-	data->y1 = -2.5;
+	data->it_max = 22;
+	data->zoom = 1800;
+	data->x1 = -2.;
+	data->y1 = -0.25;
 	data->color = 265;
 	data->red_burningship = -1;
-	if (data->red_burningship == 1)
-		data->color = 1600000;
-	else
-		data->color = 265;
 }
 
 /* navigate the screen and pass the x/y to our calc function */
@@ -48,9 +44,8 @@ void	burningship(t_fractol	*data)
 }
 
 /* transform the x/y into screen coord and put pixels.
-	x1 and y1 are the offset
-	the zoom value let us zoom in or zoom out
-	but here it enables us to calculates the next complex */
+	x1 and y1 are the offset (-2 to get in the middle)
+	the zoom value let us zoom in or zoom out */
 void	burningship_calc(t_fractol *data)
 {
 	data->c_r = data->x / data->zoom + data->x1;
@@ -62,14 +57,15 @@ void	burningship_calc(t_fractol *data)
 				data->it < data->it_max)
 	{
 		data->tmp = data->z_r;
-		data->z_r = fabs(data->z_r * data->z_r -	data->z_i * data->z_i + data->c_r);
+		data->z_r = fabs(data->z_r * data->z_r - data->z_i * \
+					data->z_i + data->c_r);
 		data->z_i = fabs(2 * data->z_i * data->tmp + data->c_i);
 		data->it++;
 	}
 	if (data->it == data->it_max)
 		put_pxl_to_img(data, data->x, data->y, 0x000000);
 	else if (data->red_burningship == 1)
-		put_pxl_to_img(data, data->x, data->y, (data->color + data->it));
+		put_pxl_to_img(data, data->x, data->y, (data->color) * (10 * data->it));
 	else
-		put_pxl_to_img(data, data->x, data->y, (data->color * data->it));
+		put_pxl_to_img(data, data->x, data->y, (data->color * (data->it % 50)));
 }

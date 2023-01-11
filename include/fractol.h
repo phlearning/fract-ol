@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 16:17:23 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 19:32:56 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_fractol {
 	int			it;
 	int			it_max;
 	int			show_text;
+	int			show_help;
 	double		zoom;
 	double		x1;
 	double		y1;
@@ -62,6 +63,7 @@ int		control_key(int keycode, t_fractol *data);
 int		expose_hook(t_fractol *data);
 
 /* keyhook */
+int		key_hook3(int keycode, t_fractol *data);
 int		key_hook2(int keycode, t_fractol *data);
 int		key_hook(int keycode, t_fractol *data);
 

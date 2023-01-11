@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:06:24 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 16:49:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/11 19:11:28 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@
 # define K_SP 49
 # define K_ESC 53
 # define K_TAB 48
+# define K_LSHIFT 257
 
 /*
 ** Mouse
