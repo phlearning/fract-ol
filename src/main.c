@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 16:20:05 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:53:30 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_fract(t_fractol *data)
 	fract_calc(data);
 }
 
-int correct_fractol(char **entered_fract, t_fractol *data)
+int	correct_fractol(char **entered_fract, t_fractol *data)
 {
 	data->show_help = 1;
 	if (ft_strcmp(entered_fract[1], "Mandelbrot") == 0 \
@@ -48,9 +48,9 @@ int correct_fractol(char **entered_fract, t_fractol *data)
 
 int	main(int ac, char **av)
 {
-	t_fractol *data;
+	t_fractol	*data;
 
-	data  = malloc(sizeof(t_fractol));
+	data = malloc(sizeof(t_fractol));
 	if (!data)
 		return (0);
 	if (ac == 2)
@@ -59,11 +59,10 @@ int	main(int ac, char **av)
 		if (correct_fractol(av, data) == 0)
 			return (0);
 		init_fract(data);
-		mlx_hook(data->win, MOTION_NOTIFY, POINTER_MOTION_MASK, \
-		mouse_julia, data);
+		mlx_hook(data->win, MOTION_NOTIFY, 0, mouse_julia, data);
 		mlx_expose_hook(data->win, expose_hook, data);
 		mlx_loop_hook(data->mlx, fract_calc, data);
-		mlx_hook(data->win, DESTROY_NOTIFY, 0L, ft_close, data);
+		mlx_hook(data->win, DESTROY_NOTIFY, 0, ft_close, data);
 		mlx_key_hook(data->win, control_key, data);
 		mlx_mouse_hook(data->win, mouse_hook, data);
 		mlx_loop(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:25:49 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 20:08:14 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 21:48:33 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	put_text3(t_fractol *data)
 {
 	mlx_string_put(data->mlx, data->win, 10, 50, 0x4DACEE, \
 	"PRESS H to hide help menu");
-	mlx_string_put(data->mlx, data->win, 10, 70, 0xFFFFFF,\
+	mlx_string_put(data->mlx, data->win, 10, 70, 0xFFFFFF, \
 	"PRESS the arrows to move");
 	mlx_string_put(data->mlx, data->win, 10, 90, 0xFFFFFF, \
 	"Click left on mouse or Scroll up to zoom");
@@ -69,4 +69,6 @@ void	put_text3(t_fractol *data)
 	"Press + - to change iter_max");
 	mlx_string_put(data->mlx, data->win, 10, 190, 0xFFFFFF, \
 	"Press Shift to change fractals");
+	mlx_string_put(data->mlx, data->win, 10, 210, 0xFFFFFF, \
+	"Press 1, 2 or 3 to change colors");
 }

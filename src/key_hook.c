@@ -6,13 +6,13 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:38:01 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 20:08:40 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:50:15 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-int		expose_hook(t_fractol *data)
+int	expose_hook(t_fractol *data)
 {
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->img_ptr = mlx_get_data_addr(data->img, &data->bpp, \
@@ -22,7 +22,7 @@ int		expose_hook(t_fractol *data)
 	return (0);
 }
 
-int		key_hook3(int keycode, t_fractol *data)
+int	key_hook3(int keycode, t_fractol *data)
 {
 	if (keycode == K_LSHIFT)
 	{
@@ -32,7 +32,7 @@ int		key_hook3(int keycode, t_fractol *data)
 	return (0);
 }
 
-int		key_hook2(int keycode, t_fractol *data)
+int	key_hook2(int keycode, t_fractol *data)
 {
 	if (keycode == K_NUM_2)
 	{
@@ -54,11 +54,11 @@ int		key_hook2(int keycode, t_fractol *data)
 	else if (keycode == K_I)
 		data->show_text = !data->show_text;
 	else if (keycode == K_H)
-		data->show_help= !data->show_help;
+		data->show_help = !data->show_help;
 	return (0);
 }
 
-int		key_hook(int keycode, t_fractol *data)
+int	key_hook(int keycode, t_fractol *data)
 {
 	if (keycode == 53)
 		exit(1);
@@ -68,7 +68,7 @@ int		key_hook(int keycode, t_fractol *data)
 		data->it_max -= 10;
 	else if (keycode == K_AR_L)
 		data->x1 -= 30 / data->zoom;
-	else if (keycode == K_AR_R) 
+	else if (keycode == K_AR_R)
 		data->x1 += 30 / data->zoom;
 	else if (keycode == K_AR_D)
 		data->y1 += 30 / data->zoom;

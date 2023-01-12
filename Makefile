@@ -83,8 +83,27 @@ $(NAME):	$(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LNK) $(LIB_LNK) $(FT_PRINTF_LNK) -lm -o $(NAME)
 	@echo "$(BLUE) Fractol Compiled $(END)"
 
+norminette:
+	@echo "$(BLUE) Checking ft_printf directory$(END)"
+	@echo "\n--------FT_PRINTF---------\n" > norminette.txt
+	norminette ft_printf >> norminette.txt
+	@echo "$(BLUE) Checking include directory$(END)"
+	@echo "\n--------INCLUDE-----------\n" >> norminette.txt
+	norminette include >> norminette.txt
+	@echo "$(BLUE) Checking libft directory$(END)"
+	@echo "\n--------LIBFT-------------\n" >> norminette.txt
+	norminette libft >> norminette.txt
+	@echo "$(BLUE) Checking src directory$(END)"
+	@echo "\n--------SRC---------------\n" >> norminette.txt
+	norminette src >> norminette.txt
+
+checkfunction:
+	$(shell nm -A ./objs/*) > checkfunction.txt
+
 clean:
 	@rm -rf $(OBJS_DIR)
+	@rm -rf norminette.txt
+	@rm -rf checkfunction.txt
 	@make -C $(LIBFT_DIR) clean
 	@make -C $(FT_PRINTF_DIR) clean
 	@make -C $(MLX) clean

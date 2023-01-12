@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 19:32:56 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:18:12 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_fractol {
 
 /* Init window & Init fractol*/
 void	mlx_win_init(t_fractol *data);
-int 	correct_fractol(char **entered_fract, t_fractol *data);
+int		correct_fractol(char **entered_fract, t_fractol *data);
 void	init_fract(t_fractol *data);
 
 /* Hook */

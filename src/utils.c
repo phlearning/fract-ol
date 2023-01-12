@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 16:19:41 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 16:11:10 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 21:22:16 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	mlx_win_init(t_fractol *data)
 }
 
 /* Close the window by exiting */
-int		ft_close(void)
+int	ft_close(void)
 {
 	exit(1);
 	return (0);

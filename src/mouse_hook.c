@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:22:17 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 19:23:00 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:54:41 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Also mouse_julia in julia.c
 
-int		mouse_hook(int mousecode, int x, int y, t_fractol *data)
+int	mouse_hook(int mousecode, int x, int y, t_fractol *data)
 {
 	if (mousecode == M_SCR_U || mousecode == M_CLK_L)
 		ft_zoom(x, y, data);

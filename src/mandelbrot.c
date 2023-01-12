@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:48:19 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 18:39:50 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 20:54:09 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	mandelbrot_calc(t_fractol *data)
 				data->it < data->it_max)
 	{
 		data->tmp = data->z_r;
-		data->z_r = data->z_r * data->z_r -	data->z_i * data->z_i + data->c_r;
+		data->z_r = data->z_r * data->z_r - data->z_i * data->z_i + data->c_r;
 		data->z_i = 2 * data->z_i * data->tmp + data->c_i;
 		data->it++;
 	}
