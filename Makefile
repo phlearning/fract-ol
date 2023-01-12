@@ -43,7 +43,8 @@ SOURCES			= main.c \
 				burningship.c \
 				key_hook.c \
 				mouse_hook.c \
-				text.c
+				text.c \
+				zoom.c
 				
 
 SRC = $(addprefix $(SRC_DIR)/,$(SOURCES))

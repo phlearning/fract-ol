@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/11 20:08:30 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/12 16:20:05 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int correct_fractol(char **entered_fract, t_fractol *data)
 		data->fract = 2;
 	else
 	{
-		ft_printf("\t\tPossible fractol Mandelbrot or Julia. \
-					\n\t\t Ex: ./fractol Mandelbrot\n");
+		ft_printf("Possible fractol Mandelbrot, Julia or Burningship.");
+		ft_printf(" Ex: ./fractol Mandelbrot\n");
 		return (0);
 	}
 	return (1);
@@ -69,7 +69,9 @@ int	main(int ac, char **av)
 		mlx_loop(data->mlx);
 	}
 	else
-		ft_printf("\tChoose between Mandelbrot or Julia: ex ./fractol mandelbrot \n\
-		\t\t\t\t./fractol julia\n");
+	{
+		ft_printf("\tChoose between Mandelbrot, Julia or Burningship: ");
+		ft_printf("ex ./fractol mandelbrot\n");
+	}
 	return (0);
 }
