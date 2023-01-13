@@ -6,12 +6,12 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:49:56 by pvong             #+#    #+#             */
-/*   Updated: 2022/11/09 17:21:16 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 15:52:11 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "libft/libft.h"
+#include "./includes/ft_printf.h"
+#include "./libft/libft.h"
 
 /* Char & str */
 int	ft_printchar(char c)
