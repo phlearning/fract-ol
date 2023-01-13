@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 20:18:12 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 14:21:13 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 
 # define WIDTH 900
 # define HEIGHT 900
-# define THREAD_WIDTH 10
-# define THREAD_NUMBER 300
 
 typedef struct s_fractol {
 	void		*mlx;
