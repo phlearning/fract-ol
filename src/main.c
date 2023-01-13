@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 20:53:30 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 19:17:47 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,21 @@ int	correct_fractol(char **entered_fract, t_fractol *data)
 	{
 		ft_printf("Possible fractol Mandelbrot, Julia or Burningship.");
 		ft_printf(" Ex: ./fractol Mandelbrot\n");
+		free(data);
 		return (0);
 	}
 	return (1);
+}
+
+void	hook(t_fractol *data)
+{
+	mlx_hook(data->win, MOTION_NOTIFY, 0, mouse_julia, data);
+	mlx_expose_hook(data->win, expose_hook, data);
+	mlx_loop_hook(data->mlx, fract_calc, data);
+	mlx_hook(data->win, DESTROY_NOTIFY, 0, ft_close, data);
+	mlx_key_hook(data->win, control_key, data);
+	mlx_mouse_hook(data->win, mouse_hook, data);
+	mlx_loop(data->mlx);
 }
 
 int	main(int ac, char **av)
@@ -59,18 +71,13 @@ int	main(int ac, char **av)
 		if (correct_fractol(av, data) == 0)
 			return (0);
 		init_fract(data);
-		mlx_hook(data->win, MOTION_NOTIFY, 0, mouse_julia, data);
-		mlx_expose_hook(data->win, expose_hook, data);
-		mlx_loop_hook(data->mlx, fract_calc, data);
-		mlx_hook(data->win, DESTROY_NOTIFY, 0, ft_close, data);
-		mlx_key_hook(data->win, control_key, data);
-		mlx_mouse_hook(data->win, mouse_hook, data);
-		mlx_loop(data->mlx);
+		hook(data);
 	}
 	else
 	{
 		ft_printf("\tChoose between Mandelbrot, Julia or Burningship: ");
 		ft_printf("ex ./fractol mandelbrot\n");
 	}
+	free(data);
 	return (0);
 }

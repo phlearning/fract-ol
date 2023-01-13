@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/13 14:39:58 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 18:50:45 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		correct_fractol(char **entered_fract, t_fractol *data);
 void	init_fract(t_fractol *data);
 
 /* Hook */
+void	hook(t_fractol *data);
 int		control_key(int keycode, t_fractol *data);
 int		expose_hook(t_fractol *data);
 

@@ -96,6 +96,7 @@ norminette:
 	@echo "$(BLUE) Checking src directory$(END)"
 	@echo "\n--------SRC---------------\n" >> norminette.txt
 	norminette src >> norminette.txt
+	@cat norminette.txt
 
 checkfunction:
 	$(shell nm -A ./objs/*) > checkfunction.txt

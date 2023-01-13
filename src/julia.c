@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:09:45 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 16:20:04 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 18:13:55 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	julia_init(t_fractol *data)
 	data->x1 = -2.25;
 	data->y1 = -2.25;
 	data->color = 265;
-	data->c_i = 7;
-	data->c_r = 249;
+	data->c_i = 465;
+	data->c_r = 465;
 	data->julia_mouse = 1;
 }
 
@@ -48,8 +48,8 @@ void	julia_calc(t_fractol *data)
 	{
 		data->tmp = data->z_r;
 		data->z_r = data->z_r * data->z_r - data->z_i * data->z_i \
-			+ (data->c_r / WIDTH);
-		data->z_i = 2 * data->z_i * data->tmp + data->c_i / HEIGHT;
+			- 0.5 + (data->c_r / WIDTH);
+		data->z_i = 2 * data->z_i * data->tmp - 0.5 + data->c_i / HEIGHT;
 		data->it++;
 	}
 	if (data->it == data->it_max)
