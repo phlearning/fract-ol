@@ -6,7 +6,7 @@
 #    By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 13:33:42 by pvong             #+#    #+#              #
-#    Updated: 2023/01/05 14:23:32 by pvong            ###   ########.fr        #
+#    Updated: 2023/01/13 15:13:21 by pvong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,12 +46,12 @@ $(NAME):	$(OBJS)
 			@echo "$(Green)Compiled ft_printf$(END)"
 
 clean:
-			@$(MAKE) clean -C ./libft
+			@$(MAKE) -C ./libft clean
 			@rm -f $(OBJS)
 			@echo "$(BLUE)Cleaned ft_printf$(END)"
 
 fclean:		clean
-			@$(MAKE) fclean -C ./libft
+			@$(MAKE) -C ./libft fclean 
 			@rm -f $(NAME)
 			@echo "$(RED)Fcleaned ft_printf$(END)"
 
