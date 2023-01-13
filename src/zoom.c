@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:07:32 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/13 14:31:44 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/13 14:37:49 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ and subtracting a fraction of the current zoom level,
 which cause the fractal to be centered on the point (x, y) that was clicked. */
 void	ft_zoom(int x, int y, t_fractol *data)
 {
-	data->x1 = (x / data->zoom) - (x / (data->zoom * 1.3)) + data->x1;
-	data->y1 = (y / data->zoom) - (y / (data->zoom * 1.3)) + data->y1;
+	data->x1 += (x - (x / 1.3)) / data->zoom;
+	data->y1 += (y - (y / 1.3)) / data->zoom;
 	data->zoom *= 1.3;
 	data->it_max += 2;
 }
@@ -29,8 +29,8 @@ void	ft_zoom(int x, int y, t_fractol *data)
  so the fractal is again centered on the point (x, y) that was clicked. */
 void	ft_dezoom(int x, int y, t_fractol *data)
 {
-	data->x1 = (x / data->zoom) - (x / (data->zoom / 1.3)) + data->x1;
-	data->y1 = (y / data->zoom) - (y / (data->zoom / 1.3)) + data->y1;
+	data->x1 += (x - (x * 1.3)) / data->zoom ;
+	data->y1 += (y - (y * 1.3)) / data->zoom;
 	data->zoom /= 1.3;
 	data->it_max -= 2;
 }
