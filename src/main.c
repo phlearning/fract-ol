@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/13 19:17:47 by pvong            ###   ########.fr       */
+/*   Updated: 2023/01/15 19:48:24 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	correct_fractol(char **entered_fract, t_fractol *data)
 	{
 		ft_printf("Possible fractol Mandelbrot, Julia or Burningship.");
 		ft_printf(" Ex: ./fractol Mandelbrot\n");
+		data = 0;
 		free(data);
 		return (0);
 	}
@@ -67,9 +68,12 @@ int	main(int ac, char **av)
 		return (0);
 	if (ac == 2)
 	{
-		mlx_win_init(data);
 		if (correct_fractol(av, data) == 0)
+		{
+			free(data);
 			return (0);
+		}
+		mlx_win_init(data);
 		init_fract(data);
 		hook(data);
 	}
