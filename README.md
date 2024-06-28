@@ -26,15 +26,15 @@ A fractal is a complex geometric shape that can be split into parts, each of whi
 ### Example Fractals
 
   1. Mandelbrot Set: Defined by iterating the function $z_{n+1} = z_n^2 + c$, where $z$ and $c$ are complex numbers. The set consists of values of $c$ for which the sequence does not tend to infinity.
-   <center>
+  <p align="center">
     <img src="images/mandelbrot.png" alt="mandelbrot_pic" width="25%">
-  </center>
+  </p>
 
   2. Julia Set: Similar to the Mandelbrot set but focuses on the behavior of the sequence $z_{n+1}=z_n^2+k$, where $k$ is a constant complex number and $z$ varies.
 
-   <center>
+  <p align="center">
     <img src="images/julia.png" alt="mandelbrot_pic" width="25%">
-  </center>
+  </p>
 
 ## Getting Started <a name = "getting_started"></a>
 
