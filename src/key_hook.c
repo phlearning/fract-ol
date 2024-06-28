@@ -6,11 +6,12 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:38:01 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/12 20:50:15 by pvong            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:33:47 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+#include "stdio.h"
 
 int	expose_hook(t_fractol *data)
 {
@@ -60,7 +61,7 @@ int	key_hook2(int keycode, t_fractol *data)
 
 int	key_hook(int keycode, t_fractol *data)
 {
-	if (keycode == 53)
+	if (keycode == K_ESC)
 		exit(1);
 	else if (keycode == K_NP_PLU)
 		data->it_max += 10;
@@ -91,7 +92,7 @@ int	control_key(int keycode, t_fractol *data)
 	int	r;
 
 	r = 0;
-	if (keycode == 53)
+	if (keycode == K_ESC)
 	{
 		mlx_destroy_image(data->mlx, data->img);
 		mlx_destroy_window(data->mlx, data->win);
@@ -99,7 +100,7 @@ int	control_key(int keycode, t_fractol *data)
 	}
 	else
 	{
-		if (keycode >= 1 && keycode <= 258 && ++r > 0)
+		if (keycode >= 0 && keycode <= K_LSHIFT && ++r > 0)
 			key_hook(keycode, data);
 		r++;
 		if (r > 0)

@@ -14,5 +14,13 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	ssize_t ret;
+
+	ret = write(fd, &c, 1);
+	if (ret == -1)
+	{
+		ssize_t err_ret;
+		err_ret = write(2, "write error\n", 12);
+		(void) err_ret;
+	}
 }

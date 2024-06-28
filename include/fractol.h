@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:13:05 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/13 18:50:45 by pvong            ###   ########.fr       */
+/*   Updated: 2024/06/28 12:52:03 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 # include "../ft_printf/includes/ft_printf.h"
-# include "../mlx_opengl/mlx.h"
 # include "./x11events.h"
-# include "./key_macos.h"
+# include "./keycodes.h"
+
+# ifdef __linux__
+#  include "../mlx_linux/mlx.h"
+# else
+#  include "../mlx_opengl/mlx.h"
+# endif
 
 # define WIDTH 900
 # define HEIGHT 900

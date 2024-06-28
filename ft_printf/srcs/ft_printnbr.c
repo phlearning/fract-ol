@@ -30,11 +30,9 @@ int	ft_get_unbr_len(unsigned int n)
 
 char	*ft_uitoa(unsigned int n)
 {
-	int		i;
 	int		len;
 	char	*nbr;
 
-	i = 0;
 	len = ft_get_unbr_len(n);
 	nbr = malloc(sizeof(char) * (len + 1));
 	if (!nbr)

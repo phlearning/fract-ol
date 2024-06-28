@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:09:45 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/13 18:13:55 by pvong            ###   ########.fr       */
+/*   Updated: 2024/06/28 14:56:41 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 int	mouse_julia(int x, int y, t_fractol *data)
 {
+	static int	prev_x = -1;
+	static int	prev_y = -1;
+	int	threshold;
+	
+	threshold = 10;
 	if (data->fract == 1 && data->julia_mouse == 1)
 	{
-		data->c_r = x;
-		data->c_i = y;
-		mlx_destroy_image(data->mlx, data->img);
-		mlx_clear_window(data->mlx, data->win);
-		expose_hook(data);
+		if (abs(x - prev_x) > threshold || abs(y - prev_y) > threshold)
+		{
+			data->c_r = x;
+			data->c_i = y;
+			mlx_destroy_image(data->mlx, data->img);
+			mlx_clear_window(data->mlx, data->win);
+			expose_hook(data);
+			prev_x = x;
+			prev_y = y;
+		}
 	}
 	return (0);
 }
@@ -38,6 +48,10 @@ void	julia_init(t_fractol *data)
 	data->julia_mouse = 1;
 }
 
+/**
+ * The scaling are done in the calculation, it would have better to do
+ * the scaling beforehand.
+ */
 void	julia_calc(t_fractol *data)
 {
 	data->z_r = data->x / data->zoom + data->x1;

@@ -21,7 +21,7 @@ LIBFTA			= $(addprefix ./$(LIBFT_DIR)/, libft.a)
 LIB_INC			= -I $(LIBFT_DIR)
 LIB_LNK			= -L $(LIBFT_DIR) -lft
 
-ifeq ($(UNAME), linux)
+ifeq ($(UNAME), Linux)
 	MLX			= mlx_linux
 	MLX_LNK 	= -L $(MLX) -lmlx -lXext -lX11
 else 

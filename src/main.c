@@ -6,7 +6,7 @@
 /*   By: pvong <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:45:08 by pvong             #+#    #+#             */
-/*   Updated: 2023/01/15 19:48:24 by pvong            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:37:03 by pvong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	correct_fractol(char **entered_fract, t_fractol *data)
 
 void	hook(t_fractol *data)
 {
-	mlx_hook(data->win, MOTION_NOTIFY, 0, mouse_julia, data);
+	mlx_hook(data->win, MOTION_NOTIFY, 1L<<6, mouse_julia, data);
 	mlx_expose_hook(data->win, expose_hook, data);
 	mlx_loop_hook(data->mlx, fract_calc, data);
 	mlx_hook(data->win, DESTROY_NOTIFY, 0, ft_close, data);

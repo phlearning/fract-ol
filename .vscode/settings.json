@@ -33,6 +33,7 @@
 		"functional": "c",
 		"limits": "c",
 		"tuple": "c",
-		"utility": "c"
+		"utility": "c",
+		"mlx_int.h": "c"
 	}
 }
